@@ -1,0 +1,354 @@
+.header {
+  background: var(--gradient-1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.logo-icon {
+  margin-right: 8px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-icon i {
+  color: white;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  position: relative;
+  padding: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.header-nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.header-nav a:hover {
+  color: white;
+}
+
+.header-nav a:hover::after {
+  width: 100%;
+}
+
+.nav-login {
+  background-color: var(--accent);
+  color: white !important;
+  padding: 8px 20px !important;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.nav-login:hover {
+  background-color: #e5007e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nav-login::after {
+  display: none;
+}
+
+/* Add styles for the logout button */
+.nav-logout {
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  padding: 5px 0;
+  font-size: 1rem;
+  font-family: inherit;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-logout::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.nav-logout:hover {
+  color: white;
+}
+
+.nav-logout:hover::after {
+  width: 100%;
+}
+
+/* Style for the register button */
+.nav-register {
+  background-color: white;
+  color: var(--primary) !important;
+  padding: 8px 20px !important;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  margin-left: 10px;
+}
+
+.nav-register:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nav-register::after {
+  display: none;
+}
+
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.mobile-menu-btn span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .header-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .header-nav.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .header-nav {
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .nav-register {
+    margin-left: 0;
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+
+  .nav-login {
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+
+  .nav-logout {
+    background-color: #f72585;
+    color: white !important;
+    padding: 8px 20px !important;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+
+  .nav-logout::after {
+    display: none;
+  }
+}
+
+/* Profile Dropdown Styles */
+.profile-dropdown-container {
+  position: relative;
+  margin-left: 10px;
+}
+
+.profile-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.profile-dropdown-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.profile-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+.profile-name {
+  margin: 0 8px;
+  font-weight: 500;
+  max-width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 200px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  padding: 8px 0;
+  margin-top: 8px;
+  z-index: 100;
+  animation: fadeIn 0.2s ease;
+}
+
+.profile-dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 20px;
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  transform: rotate(45deg);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.profile-dropdown-menu a,
+.profile-dropdown-menu button {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.profile-dropdown-menu a:hover,
+.profile-dropdown-menu button:hover {
+  background-color: #f5f7fa;
+}
+
+.profile-dropdown-menu i {
+  margin-right: 10px;
+  width: 16px;
+  color: #666;
+}
+
+.profile-dropdown-menu button {
+  border-top: 1px solid #eee;
+  margin-top: 5px;
+  padding-top: 10px;
+  color: #ff4d4f;
+}
+
+.profile-dropdown-menu button i {
+  color: #ff4d4f;
+}
+
+/* Hide profile dropdown on mobile, show mobile-only logout */
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .profile-dropdown-container {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
